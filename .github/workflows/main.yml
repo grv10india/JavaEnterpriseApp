@@ -28,8 +28,8 @@ jobs:
       # Build and push the Docker image
       - name: Build and push Docker image
         run: |
-          docker build -t neermor/webapp .
-          docker push neermor/webapp
+          docker build -t JavaEnterpriseApp/webapp .
+          docker push JavaEnterpriseApp/webapp
  
       # SSH into EC2 and deploy the container
       - name: SSH to EC2 and deploy Docker container
@@ -43,7 +43,7 @@ jobs:
             sudo yum install -y docker
             sudo service docker start
             # Pull the image from DockerHub
-            docker pull neermor/webapp
+            docker pull JavaEnterpriseApp/webapp
             sudo usermod -aG docker $(whoami)  # Add ec2-user to docker group
  
             # Debugging SSH connection
